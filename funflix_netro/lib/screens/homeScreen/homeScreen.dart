@@ -4,8 +4,11 @@ import 'package:funflix_netro/models/categoryModel.dart';
 import 'package:funflix_netro/models/latestShowsModel.dart';
 import 'package:funflix_netro/screens/homeScreen/latestShowsScreen.dart';
 import 'package:funflix_netro/screens/homeScreen/trendingVideosScreen.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../utils/appColors.dart';
+import 'notificationScreen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,8 +18,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: SingleChildScrollView(
-
           child: Column(
             children: [
               Container(
@@ -46,11 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         alignment: Alignment.topRight,
                         child: IconButton(
                             onPressed: () {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) =>
-                              //             NotificationScreen()));
+                              Get.to(const NotificationScreen());
                             },
                             icon: Icon(
                               Icons.notifications,
@@ -103,7 +99,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     width: 104.w,
                                     child: Center(
                                         child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         const Icon(
                                           Icons.play_circle_outline,
@@ -126,7 +123,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ],
                           ),
-
                           Container(
                             height: 42.h,
                             width: 40.w,
@@ -163,7 +159,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const LatestShowsScreen()));
+                                builder: (context) =>
+                                    const LatestShowsScreen()));
                       },
                       child: Text(
                         'Show all',
@@ -179,8 +176,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const CategoryModel(),
               const LatestShowsModel(),
               Padding(
-                padding: const EdgeInsets.only(
-                    left: 16, top: 14, right: 16),
+                padding: const EdgeInsets.only(left: 16, top: 14, right: 16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -196,7 +192,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const TrendingVideosScreen()));
+                                builder: (context) =>
+                                    const TrendingVideosScreen()));
                       },
                       child: Text(
                         'Show all',
@@ -216,7 +213,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-
     );
   }
 }

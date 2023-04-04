@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:funflix_netro/screens/downloadScreen.dart';
+import 'package:funflix_netro/screens/myListScreen.dart';
 import 'package:funflix_netro/screens/homeScreen/homeScreen.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -16,9 +18,9 @@ class _MyBottomNavModelState extends State<MyBottomNavModel> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    Text('Likes'),
+    DownloadScreen(),
     Text('Search'),
-    Text('Profile'),
+    MyListScreen(),
     Text('Profile'),
   ];
 
@@ -30,7 +32,7 @@ class _MyBottomNavModelState extends State<MyBottomNavModel> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: Container(
-        height: 84.h,
+        height: 76.h,
         decoration: BoxDecoration(
           color: AppColors.colorGrey,
           boxShadow: [
