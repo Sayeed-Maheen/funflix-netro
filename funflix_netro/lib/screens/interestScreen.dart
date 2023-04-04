@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:funflix_netro/screens/profileFillupScreen/profileFillupScreen.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../utils/appColors.dart';
 
@@ -112,10 +114,7 @@ class _InterestScreenState extends State<InterestScreen> {
                 SizedBox(width: 20.w),
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ProfileFillupScreen()));
+                    Get.to( const ProfileFillupScreen());
                   },
                   child: Container(
                     height: 45.h,

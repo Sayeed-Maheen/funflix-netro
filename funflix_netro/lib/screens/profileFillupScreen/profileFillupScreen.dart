@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:funflix_netro/screens/profileFillupScreen/newPinScreen.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 import '../../models/genderDropdownModel.dart';
@@ -200,8 +202,7 @@ class _ProfileFillupScreenState extends State<ProfileFillupScreen> {
               SizedBox(height: 70.h),
               InkWell(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const NewPinScreen()));
+                  Get.to( const NewPinScreen());
                 },
                 child: Container(
                   height: 55,

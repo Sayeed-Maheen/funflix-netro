@@ -16,17 +16,10 @@ class _MyBottomNavModelState extends State<MyBottomNavModel> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    Text(
-      'Likes',
-    ),
-    Text(
-      'Search',
-    ),
-    Text(
-      'Profile',
-    ),Text(
-      'Profile',
-    ),
+    Text('Likes'),
+    Text('Search'),
+    Text('Profile'),
+    Text('Profile'),
   ];
 
   @override
@@ -66,22 +59,18 @@ class _MyBottomNavModelState extends State<MyBottomNavModel> {
                   text: 'Home',
                 ),
                 GButton(
-
                   icon: Icons.download,
                   text: 'Download',
                 ),
                 GButton(
-
                   icon: Icons.search,
                   text: 'Search',
                 ),
                 GButton(
-
                   icon: Icons.folder_outlined,
                   text: 'File',
                 ),
                 GButton(
-
                   icon: Icons.account_circle_outlined,
                   text: 'Profile',
                 ),

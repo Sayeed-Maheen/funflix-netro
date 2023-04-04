@@ -3,8 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../utils/appColors.dart';
 
-
-
 class RememberMeModel extends StatefulWidget {
   const RememberMeModel({super.key});
 
@@ -14,6 +12,7 @@ class RememberMeModel extends StatefulWidget {
 
 class _RememberMeModelState extends State<RememberMeModel> {
   bool? check1 = false;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -31,7 +30,6 @@ class _RememberMeModelState extends State<RememberMeModel> {
                 height: 20.h,
                 width: 20.w,
                 child: Checkbox(
-
                     value: check1,
                     onChanged: (bool? value) {
                       setState(() {

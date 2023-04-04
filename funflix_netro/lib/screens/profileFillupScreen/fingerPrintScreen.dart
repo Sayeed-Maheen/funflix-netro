@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:funflix_netro/models/myBottomNavModel.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../utils/appColors.dart';
-
-
 
 class FingerPrintScreen extends StatefulWidget {
   const FingerPrintScreen({super.key});
@@ -17,18 +17,17 @@ class _FingerPrintScreenState extends State<FingerPrintScreen> {
   Future<void> _showSimpleDialog() async {
     await showDialog<void>(
         context: context,
-     barrierDismissible: false,
+        barrierDismissible: false,
         builder: (BuildContext context) {
           return SimpleDialog(
-
             backgroundColor: AppColors.colorGrey,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
             children: <Widget>[
               SimpleDialogOption(
-                child: Image.asset('assets/images/confirm.png', height: 108,
-                  width: 108),
+                child: Image.asset('assets/images/confirm.png',
+                    height: 108, width: 108),
               ),
               SimpleDialogOption(
                 child: Center(
@@ -55,8 +54,7 @@ class _FingerPrintScreenState extends State<FingerPrintScreen> {
               SimpleDialogOption(
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const MyBottomNavModel()));
+                    Get.offAll(const MyBottomNavModel());
                   },
                   child: Container(
                     height: 52,
@@ -65,7 +63,7 @@ class _FingerPrintScreenState extends State<FingerPrintScreen> {
                         color: AppColors.colorPrimary,
                         borderRadius: BorderRadius.circular(8)),
                     child: Center(
-                      child:  Text(
+                      child: Text(
                         'EXPLORE NOW',
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -125,20 +123,23 @@ class _FingerPrintScreenState extends State<FingerPrintScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  height: 45.h,
-                  width: 148.w,
-                  decoration: BoxDecoration(
-                    color: AppColors.colorWhiteMidEmp,
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'SKIP',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.colorSecondaryDarkest,
-                        fontSize: 16.sp,
+                InkWell(
+                  onTap: _showSimpleDialog,
+                  child: Container(
+                    height: 45.h,
+                    width: 148.w,
+                    decoration: BoxDecoration(
+                      color: AppColors.colorWhiteMidEmp,
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'SKIP',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.colorSecondaryDarkest,
+                          fontSize: 16.sp,
+                        ),
                       ),
                     ),
                   ),

@@ -6,7 +6,9 @@ import 'appColors.dart';
 class MyButton extends StatefulWidget {
   final void Function()? onPressed;
   final String text;
-  const MyButton({super.key,
+
+  const MyButton({
+    super.key,
     required this.onPressed,
     required this.text,
   });
@@ -21,11 +23,9 @@ class _MyButtonState extends State<MyButton> {
     return MaterialButton(
       onPressed: widget.onPressed,
       height: 50.h,
-
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       padding: const EdgeInsets.symmetric(horizontal: 0),
       child: Ink(
-
         decoration: BoxDecoration(
           color: AppColors.colorPrimary,
           borderRadius: BorderRadius.circular(12),
@@ -35,13 +35,13 @@ class _MyButtonState extends State<MyButton> {
           width: double.infinity,
           child: Center(
               child: Text(
-                widget.text,
-                style: TextStyle(
-                  color: AppColors.colorWhiteHighEmp,
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w600,
-                ),
-              )),
+            widget.text,
+            style: TextStyle(
+              color: AppColors.colorWhiteHighEmp,
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w600,
+            ),
+          )),
         ),
       ),
     );

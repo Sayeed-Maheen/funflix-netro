@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../utils/appColors.dart';
 import 'onboardingScreen.dart';
@@ -17,8 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 3)).then((value) {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const OnBoardingScreen()));
+      Get.off(() => const OnBoardingScreen());
     });
   }
 

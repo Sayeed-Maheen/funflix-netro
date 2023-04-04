@@ -82,7 +82,8 @@ class _LatestShowsScreenState extends State<LatestShowsScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
 
-                    ClipRRect(
+                   ClipRRect(
+
                       borderRadius: BorderRadius.circular(12),
                       child: Image.asset(
                         "${gridMap.elementAt(index)['images']}",

@@ -1,43 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:funflix_netro/screens/profileFillupScreen/fingerPrintScreen.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../../utils/appColors.dart';
+import '../../../utils/appColors.dart';
+import 'newPasswordScreen.dart';
 
-
-class NewPinScreen extends StatefulWidget {
-  const NewPinScreen({super.key});
+class OtpVarificationScreen extends StatefulWidget {
+  const OtpVarificationScreen({super.key});
 
   @override
-  _NewPinScreenState createState() => _NewPinScreenState();
+  _OtpVarificationScreenState createState() => _OtpVarificationScreenState();
 }
 
-class _NewPinScreenState extends State<NewPinScreen> {
+class _OtpVarificationScreenState extends State<OtpVarificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.colorSecondaryDarkest,
-      appBar: AppBar(
-        title: const Text('Create new PIN'),
-        backgroundColor: AppColors.colorSecondaryDarkest,
-        elevation: 0,
-      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(height: 50.h),
-                Image.asset(
-                  'assets/images/lock.png', width: 124.w,
-                  height: 124.h
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () => Navigator.pop(context),
+                        child: const Icon(
+                          Icons.arrow_back,
+                          size: 26,
+                          color: AppColors.colorWhiteHighEmp,
+                        ),
+                      ),
+                      SizedBox(width: 20.w),
+                      Text(
+                        "Forgot Password",
+                        style: TextStyle(
+                          fontSize: 20.sp,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.colorWhiteHighEmp,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
                 ),
+                SizedBox(height: 80.h),
+                Image.asset('assets/images/lock.png',
+                    width: 200.h, height: 200.w),
                 SizedBox(height: 30.h),
                 Text(
-                  "Add your PIN number to make your \naccount more secure.",
+                  "Code has been send to +111 23******77",
                   style: TextStyle(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
@@ -62,12 +79,22 @@ class _NewPinScreenState extends State<NewPinScreen> {
                           _textFieldOTP(first: false, last: true),
                         ],
                       ),
-                      SizedBox(height: 80.h),
+                      SizedBox(height: 10.h),
+                      Text(
+                        "Resend code in 55 s",
+                        style: TextStyle(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.colorWhiteHighEmp,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(height: 140.h),
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
-                           Get.to( const FingerPrintScreen());
+                            Get.to(const NewPasswordScreen());
                           },
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all<Color>(
@@ -82,7 +109,7 @@ class _NewPinScreenState extends State<NewPinScreen> {
                           child: Padding(
                             padding: const EdgeInsets.all(14.0),
                             child: Text(
-                              'CONTINUE',
+                              'VERIFY',
                               style: TextStyle(
                                   fontSize: 16.sp, fontWeight: FontWeight.w600),
                             ),
@@ -102,10 +129,11 @@ class _NewPinScreenState extends State<NewPinScreen> {
 
   Widget _textFieldOTP({required bool first, last}) {
     return Container(
-      height: 45.h,
-      decoration:  BoxDecoration(color: AppColors.colorPrimaryLightest, borderRadius: BorderRadius.circular(8)),
+      height: 50.h,
+      decoration: BoxDecoration(
+          color: AppColors.colorGrey, borderRadius: BorderRadius.circular(8)),
       child: AspectRatio(
-        aspectRatio: 1.4,
+        aspectRatio: 1.3,
         child: TextField(
           autofocus: true,
           onChanged: (value) {
@@ -122,7 +150,7 @@ class _NewPinScreenState extends State<NewPinScreen> {
           style: TextStyle(
               fontSize: 16.sp,
               fontWeight: FontWeight.w600,
-              color: AppColors.colorPrimary),
+              color: AppColors.colorWhiteHighEmp),
           keyboardType: TextInputType.number,
           maxLength: 1,
           decoration: const InputDecoration(

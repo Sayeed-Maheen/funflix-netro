@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:funflix_netro/screens/onboardingScreen/splashScreen.dart';
+import 'package:funflix_netro/routes/routes.dart';
 import 'package:funflix_netro/utils/appColors.dart';
 import 'package:funflix_netro/utils/primarySwatch.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -22,12 +23,18 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
-          return MaterialApp(
+          return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
                 primarySwatch: createMaterialColor(AppColors.colorPrimary),
                 fontFamily: 'Kanit'),
-            home: const SplashScreen(),
+            initialRoute: RoutesClass.getSplashScreenRoute(),
+            // Set the initial route of the app
+            getPages: RoutesClass.routes,
+            // Define the app's routes
+            routes: const {
+              // your routes here
+            },
           );
         });
   }

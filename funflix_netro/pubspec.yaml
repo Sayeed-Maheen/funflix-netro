@@ -39,6 +39,7 @@ dependencies:
   flutter_screenutil:
   intl_phone_field:
   google_nav_bar:
+  get:
 
 dev_dependencies:
   flutter_test:

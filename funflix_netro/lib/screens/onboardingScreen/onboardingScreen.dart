@@ -95,7 +95,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         child: MaterialButton(
                           onPressed: () {
                             if (currentIndex == contents.length - 1) {
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                       builder: (_) => const MainSignInScreen()));
