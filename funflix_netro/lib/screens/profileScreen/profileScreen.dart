@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:funflix_netro/screens/authScreens/mainSignInScreen.dart';
+import 'package:funflix_netro/screens/profileScreen/downloadScreenProfile.dart';
+import 'package:funflix_netro/screens/profileScreen/notificationScreenProfile.dart';
+import 'package:funflix_netro/screens/profileScreen/securityScreenProfile.dart';
+import 'package:funflix_netro/screens/profileScreen/subToPremiumScreen.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-
-import 'package:google_nav_bar/google_nav_bar.dart';
-
 import '../../utils/appColors.dart';
+import 'editProfileScreen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -69,10 +71,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       SizedBox(height: 20.h),
                       InkWell(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => SubToPremium()));
+                          Get.to(const SubToPremiumScreen());
                         },
                         child: Container(
                           height: 70.h,
@@ -133,10 +132,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => EditProfile()));
+                          Get.to(const EditProfileScreen());
                         },
                         child: Container(
                           height: 50.h,
@@ -167,10 +163,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => NotificationProfile()));
+                          Get.to(const NotificationScreenProfile());
                         },
                         child: Container(
                           height: 50.h,
@@ -200,10 +193,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => DownloadProfile()));
+                          Get.to(const DownloadScreenProfile());
                         },
                         child: Container(
                           height: 50.h,
@@ -233,10 +223,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => SecurityProfile()));
+                          Get.to(const SecurityScreenProfile());
                         },
                         child: Container(
                           height: 50.h,
