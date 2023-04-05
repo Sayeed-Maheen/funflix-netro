@@ -6,6 +6,7 @@ import 'package:funflix_netro/screens/homeScreen/homeScreen.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 import '../screens/profileScreen/profileScreen.dart';
+import '../screens/searchScreen/searchScreen.dart';
 import '../utils/appColors.dart';
 
 class MyBottomNavModel extends StatefulWidget {
@@ -20,7 +21,7 @@ class _MyBottomNavModelState extends State<MyBottomNavModel> {
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     DownloadScreen(),
-    Text('Search'),
+    SearchScreen(),
     MyListScreen(),
     ProfileScreen()
   ];
