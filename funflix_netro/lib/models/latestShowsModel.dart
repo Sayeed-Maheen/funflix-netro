@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
+import '../screens/movieDetailsScreen.dart';
 import '../utils/appColors.dart';
-
 
 class LatestShowsModel extends StatelessWidget {
   const LatestShowsModel({super.key});
@@ -18,19 +20,15 @@ class LatestShowsModel extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (context) => MovieDetailsScreen()));
+                Get.to(const MovieDetailsScreen());
               },
               child: Padding(
                 padding: const EdgeInsets.only(left: 16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset('assets/images/Image.png',height: 105.h,
-                      width: 100.w),
-
+                    Image.asset('assets/images/Image.png',
+                        height: 105.h, width: 100.w),
                     Text(
                       'Pushpa',
                       style: TextStyle(
@@ -46,9 +44,8 @@ class LatestShowsModel extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset('assets/images/Image-2.png', height: 105.h,
-                  width: 100.w),
-
+                Image.asset('assets/images/Image-2.png',
+                    height: 105.h, width: 100.w),
                 Text(
                   'Agilan',
                   style: TextStyle(
@@ -62,9 +59,8 @@ class LatestShowsModel extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset('assets/images/Image-1.png', height: 105.h,
-                  width: 100.w),
-
+                Image.asset('assets/images/Image-1.png',
+                    height: 105.h, width: 100.w),
                 Text(
                   'Action',
                   style: TextStyle(
@@ -80,9 +76,8 @@ class LatestShowsModel extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset('assets/images/Image.png', height: 105.h,
-                    width: 100.w),
-
+                  Image.asset('assets/images/Image.png',
+                      height: 105.h, width: 100.w),
                   Text(
                     'Pushpa',
                     style: TextStyle(

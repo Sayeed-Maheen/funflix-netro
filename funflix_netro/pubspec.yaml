@@ -40,6 +40,7 @@ dependencies:
   intl_phone_field:
   google_nav_bar:
   get:
+  flutter_rating_bar:
 
 dev_dependencies:
   flutter_test:
