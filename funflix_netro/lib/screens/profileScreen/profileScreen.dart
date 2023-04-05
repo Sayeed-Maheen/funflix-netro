@@ -3,13 +3,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:funflix_netro/screens/authScreens/mainSignInScreen.dart';
 import 'package:funflix_netro/screens/profileScreen/downloadScreenProfile.dart';
+import 'package:funflix_netro/screens/profileScreen/languageScreenProfile.dart';
 import 'package:funflix_netro/screens/profileScreen/notificationScreenProfile.dart';
+import 'package:funflix_netro/screens/profileScreen/privacyPolicyScreen.dart';
 import 'package:funflix_netro/screens/profileScreen/securityScreenProfile.dart';
 import 'package:funflix_netro/screens/profileScreen/subToPremiumScreen.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import '../../utils/appColors.dart';
 import 'editProfileScreen.dart';
+import 'helpCenterScreen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -253,10 +256,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => LanguageProfile()));
+                          Get.to(const LanguageScreenProfile());
                         },
                         child: Container(
                           height: 50.h,
@@ -287,11 +287,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) =>
-                          //             HelpCenterProfileProfile()));
+                          Get.to(const HelpCenterScreen());
                         },
                         child: Container(
                           height: 50.h,
@@ -321,11 +317,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) =>
-                          //             PrivacyPolicyProfile()));
+                          Get.to(const PrivacyPolicyScreen());
                         },
                         child: Container(
                           height: 50.h,
