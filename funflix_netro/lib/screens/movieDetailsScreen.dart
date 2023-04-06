@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:funflix_netro/models/myBottomNavModel.dart';
 import 'package:funflix_netro/screens/castMoviesScreen.dart';
 import 'package:funflix_netro/screens/comments.dart';
 
 import 'package:get/get.dart';
-
-import 'package:google_nav_bar/google_nav_bar.dart';
-
+import 'package:share_plus/share_plus.dart';
 import '../utils/appColors.dart';
 import 'homeScreen/notificationScreen.dart';
 
+// Define a new stateful widget for the movie details screen
 class MovieDetailsScreen extends StatefulWidget {
   const MovieDetailsScreen({super.key});
 
@@ -22,19 +20,24 @@ class MovieDetailsScreen extends StatefulWidget {
 
 class _MovieDetailsScreenState extends State<MovieDetailsScreen>
     with SingleTickerProviderStateMixin {
+  // Declare a TabController to manage the tabs in the screen
   late TabController tabController;
+
   @override
   void initState() {
+    // Initialize the TabController with 3 tabs and set the SingleTickerProviderStateMixin as the vsync
     tabController = TabController(length: 3, vsync: this);
     super.initState();
   }
 
   @override
   void dispose() {
+    // Dispose the TabController when the state is being disposed
     tabController.dispose();
     super.dispose();
   }
 
+  // Define a list of maps containing the movie titles and images
   final List<Map<String, dynamic>> gridMap = [
     {
       "title": "Pushpa",
@@ -68,65 +71,72 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
 
   Future<void> _showSimpleDialog() async {
     await showDialog<void>(
-        context: context,
-        builder: (BuildContext context) {
-          return SimpleDialog(
-            backgroundColor: AppColors.colorGrey,
-            // <-- SEE HERE
-            // title: const Text('Congratulations!'),
-            children: <Widget>[
-              SimpleDialogOption(
-                child: Center(
-                  child: Text(
-                    'Download',
-                    style: TextStyle(
-                        fontSize: 22.sp,
-                        color: AppColors.colorWhiteHighEmp,
-                        fontWeight: FontWeight.w600),
+      context: context,
+      builder: (BuildContext context) {
+        return SimpleDialog(
+          backgroundColor:
+              AppColors.colorGrey, // set background color of dialog
+          // title: const Text('Congratulations!'), <-- this line is commented out
+          children: <Widget>[
+            SimpleDialogOption(
+              child: Center(
+                child: Text(
+                  'Download',
+                  style: TextStyle(
+                    fontSize: 22.sp,
+                    color: AppColors.colorWhiteHighEmp,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
-              SimpleDialogOption(
-                child: Text(
-                  'Movies still downloading....\nPlease wait or hide the process',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontSize: 14.sp,
-                      color: AppColors.colorWhiteHighEmp,
-                      fontWeight: FontWeight.w400,
-                      height: 1.2),
+            ),
+            SimpleDialogOption(
+              child: Text(
+                'Movies still downloading....\nPlease wait or hide the process',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  color: AppColors.colorWhiteHighEmp,
+                  fontWeight: FontWeight.w400,
+                  height: 1.2,
                 ),
               ),
-              SimpleDialogOption(
-                  child: Image.asset('assets/images/downloading.png')),
-              SimpleDialogOption(
-                child: InkWell(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Container(
-                    height: 45.h,
-                    width: 100.w,
-                    decoration: BoxDecoration(
-                        color: AppColors.colorWhiteMidEmp,
-                        borderRadius: BorderRadius.circular(8)),
-                    child: Center(
-                      child: Text(
-                        'HIDE',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 16.sp,
-                            color: AppColors.colorBlackMidEmp,
-                            fontWeight: FontWeight.w600,
-                            height: 1.2),
+            ),
+            SimpleDialogOption(
+              child: Image.asset(
+                  'assets/images/downloading.png'), // display downloading image
+            ),
+            SimpleDialogOption(
+              child: InkWell(
+                onTap: () {
+                  Navigator.pop(context); // close the dialog when tapped
+                },
+                child: Container(
+                  height: 45.h,
+                  width: 100.w,
+                  decoration: BoxDecoration(
+                    color: AppColors.colorWhiteMidEmp,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'HIDE',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        color: AppColors.colorBlackMidEmp,
+                        fontWeight: FontWeight.w600,
+                        height: 1.2,
                       ),
                     ),
                   ),
                 ),
               ),
-            ],
-          );
-        });
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -202,250 +212,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
                       SizedBox(width: 15.w),
                       InkWell(
                         onTap: () {
-                          showModalBottomSheet<void>(
-                            backgroundColor: AppColors.colorGrey,
-                            shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(24.0),
-                                topRight: Radius.circular(24.0),
-                              ),
-                            ),
-                            isScrollControlled: true,
-                            context: context,
-                            builder: (BuildContext context) {
-                              return SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.30,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(12),
-                                  child: SizedBox(
-                                    //height: 10.h,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        SizedBox(height: 1.h),
-                                        Center(
-                                          child: SizedBox(
-                                              height: 4,
-                                              width: 32,
-                                              child: Image.asset(
-                                                  'assets/images/top.png')),
-                                        ),
-                                        SizedBox(height: 1.5.h),
-                                        Center(
-                                          child: Text(
-                                            'Send to',
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.w600,
-                                              color:
-                                                  AppColors.colorWhiteHighEmp,
-                                              fontSize: 16.sp,
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(height: 10.h),
-                                        const Divider(
-                                          height: 1,
-                                          color: AppColors.colorGrey,
-                                        ),
-                                        SizedBox(height: 10.h),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Column(
-                                              children: [
-                                                SizedBox(
-                                                  height: 31.h,
-                                                  width: 31.w,
-                                                  child: Image.asset(
-                                                      'assets/images/facebook.png'),
-                                                ),
-                                                SizedBox(height: 5.h),
-                                                Text(
-                                                  'Facebook',
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w400,
-                                                    color: AppColors
-                                                        .colorWhiteHighEmp,
-                                                    fontSize: 14.sp,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(width: 20.w),
-                                            Column(
-                                              children: [
-                                                SizedBox(
-                                                  height: 31.h,
-                                                  width: 31.w,
-                                                  child: Image.asset(
-                                                    'assets/images/whatsapp.png',
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                                ),
-                                                SizedBox(height: 5.h),
-                                                Text(
-                                                  'Whatsapp',
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w400,
-                                                    color: AppColors
-                                                        .colorWhiteHighEmp,
-                                                    fontSize: 14.sp,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(width: 20.w),
-                                            Column(
-                                              children: [
-                                                SizedBox(
-                                                  height: 31.h,
-                                                  width: 31.w,
-                                                  child: Image.asset(
-                                                    'assets/images/twitter.png',
-                                                  ),
-                                                ),
-                                                SizedBox(height: 5.h),
-                                                Text(
-                                                  'Twitter',
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w400,
-                                                    color: AppColors
-                                                        .colorWhiteHighEmp,
-                                                    fontSize: 14.sp,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(width: 20.w),
-                                            Column(
-                                              children: [
-                                                SizedBox(
-                                                  height: 31.h,
-                                                  width: 31.w,
-                                                  child: Image.asset(
-                                                    'assets/images/yahoo.png',
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                                ),
-                                                SizedBox(height: 5.h),
-                                                Text(
-                                                  'Yahoo',
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w400,
-                                                    color: AppColors
-                                                        .colorWhiteHighEmp,
-                                                    fontSize: 14.sp,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(height: 20.h),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Column(
-                                              children: [
-                                                SizedBox(
-                                                  height: 31.h,
-                                                  width: 31.w,
-                                                  child: Image.asset(
-                                                      'assets/images/facebook.png'),
-                                                ),
-                                                SizedBox(height: 5.h),
-                                                Text(
-                                                  'Facebook',
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w400,
-                                                    color: AppColors
-                                                        .colorWhiteHighEmp,
-                                                    fontSize: 14.sp,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(width: 20.w),
-                                            Column(
-                                              children: [
-                                                SizedBox(
-                                                  height: 31.h,
-                                                  width: 31.w,
-                                                  child: Image.asset(
-                                                    'assets/images/whatsapp.png',
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                                ),
-                                                SizedBox(height: 5.h),
-                                                Text(
-                                                  'Whatsapp',
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w400,
-                                                    color: AppColors
-                                                        .colorWhiteHighEmp,
-                                                    fontSize: 14.sp,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(width: 20.w),
-                                            Column(
-                                              children: [
-                                                SizedBox(
-                                                  height: 31.h,
-                                                  width: 31.w,
-                                                  child: Image.asset(
-                                                    'assets/images/twitter.png',
-                                                  ),
-                                                ),
-                                                SizedBox(height: 5.h),
-                                                Text(
-                                                  'Twitter',
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w400,
-                                                    color: AppColors
-                                                        .colorWhiteHighEmp,
-                                                    fontSize: 14.sp,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(width: 20.w),
-                                            Column(
-                                              children: [
-                                                SizedBox(
-                                                  height: 31.h,
-                                                  width: 31.w,
-                                                  child: Image.asset(
-                                                    'assets/images/yahoo.png',
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                                ),
-                                                SizedBox(height: 5.h),
-                                                Text(
-                                                  'Yahoo',
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w400,
-                                                    color: AppColors
-                                                        .colorWhiteHighEmp,
-                                                    fontSize: 14.sp,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              );
-                            },
-                          );
+                          Share.share('com.netrocreative.funflix');
                         },
                         child: const Icon(
                           Icons.share,
@@ -467,36 +234,41 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
                       InkWell(
                         onTap: () {
                           showModalBottomSheet<void>(
-                            backgroundColor: AppColors.colorGrey,
+                            backgroundColor: AppColors
+                                .colorGrey, // background color of the bottom sheet
                             shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(24.0),
                                 topRight: Radius.circular(24.0),
                               ),
                             ),
-                            isScrollControlled: true,
-                            context: context,
+                            isScrollControlled:
+                                true, // allow scrolling if the content is larger than the screen height
+                            context: context, // required context parameter
                             builder: (BuildContext context) {
                               return SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.45,
+                                height: MediaQuery.of(context).size.height *
+                                    0.45, // set the height of the bottom sheet to 45% of the screen height
                                 child: Padding(
-                                  padding: const EdgeInsets.all(12),
+                                  padding: const EdgeInsets.all(
+                                      12), // add some padding to the content inside the bottom sheet
                                   child: SizedBox(
-                                    //height: 10.h,
                                     child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        SizedBox(height: 5.h),
+                                        SizedBox(
+                                            height: 5
+                                                .h), // add some space between the top of the bottom sheet and the content
                                         Center(
                                           child: SizedBox(
-                                              height: 4,
-                                              width: 32,
-                                              child: Image.asset(
-                                                  'assets/images/top.png')),
+                                            height: 4,
+                                            width: 32,
+                                            child: Image.asset(
+                                                'assets/images/top.png'), // add an image at the top of the bottom sheet
+                                          ),
                                         ),
                                         SizedBox(height: 5.h),
                                         Center(
@@ -513,7 +285,8 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
                                         SizedBox(height: 5.h),
                                         Divider(
                                           height: 1.h,
-                                          color: AppColors.colorGrey,
+                                          color: AppColors
+                                              .colorGrey, // add a horizontal line divider
                                         ),
                                         SizedBox(height: 5.h),
                                         Row(
@@ -582,7 +355,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
                                               height: 100.h,
                                               width: 180.w,
                                               child: Image.asset(
-                                                  'assets/images/rating.png'),
+                                                  'assets/images/rating.png'), // add an image to display the rating
                                             ),
                                           ],
                                         ),
@@ -1079,25 +852,30 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
                   controller: tabController,
                   children: [
                     Padding(
+                      // Add padding to the GridView
                       padding: const EdgeInsets.only(left: 16, right: 16),
                       child: GridView.builder(
+                        // Disable scrolling inside the GridView
                         physics: NeverScrollableScrollPhysics(),
+                        // Allow the GridView to shrink-wrap its contents
                         shrinkWrap: true,
+                        // Define the layout of the GridView
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 12.0,
-                          mainAxisSpacing: 12.0,
-                          mainAxisExtent: 210,
+                          crossAxisCount: 2, // Display two items per row
+                          crossAxisSpacing: 12.0, // Add spacing between columns
+                          mainAxisSpacing: 12.0, // Add spacing between rows
+                          mainAxisExtent: 210, // Set the height of each item
                         ),
+                        // Define the number of items in the GridView
                         itemCount: gridMap.length,
+                        // Define how each item in the GridView should be displayed
                         itemBuilder: (_, index) {
                           return Stack(children: [
+                            // Display an image and title for each item
                             Container(
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(
-                                  16.0,
-                                ),
+                                borderRadius: BorderRadius.circular(16.0),
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -1137,6 +915,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
                                 ],
                               ),
                             ),
+                            // Add a rating badge to each item
                             Positioned(
                                 top: 141,
                                 left: 135,
@@ -1162,25 +941,30 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
                       ),
                     ),
                     Padding(
+                      // Add padding to the GridView
                       padding: const EdgeInsets.only(left: 16, right: 16),
                       child: GridView.builder(
+                        // Disable scrolling inside the GridView
                         physics: NeverScrollableScrollPhysics(),
+                        // Allow the GridView to shrink-wrap its contents
                         shrinkWrap: true,
+                        // Define the layout of the GridView
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 12.0,
-                          mainAxisSpacing: 12.0,
-                          mainAxisExtent: 210,
+                          crossAxisCount: 2, // Display two items per row
+                          crossAxisSpacing: 12.0, // Add spacing between columns
+                          mainAxisSpacing: 12.0, // Add spacing between rows
+                          mainAxisExtent: 210, // Set the height of each item
                         ),
+                        // Define the number of items in the GridView
                         itemCount: gridMap.length,
+                        // Define how each item in the GridView should be displayed
                         itemBuilder: (_, index) {
                           return Stack(children: [
+                            // Display an image and title for each item
                             Container(
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(
-                                  16.0,
-                                ),
+                                borderRadius: BorderRadius.circular(16.0),
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -1220,6 +1004,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
                                 ],
                               ),
                             ),
+                            // Add a rating badge to each item
                             Positioned(
                                 top: 141,
                                 left: 135,

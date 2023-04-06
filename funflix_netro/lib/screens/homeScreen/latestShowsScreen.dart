@@ -13,6 +13,7 @@ class LatestShowsScreen extends StatefulWidget {
 
 class _LatestShowsScreenState extends State<LatestShowsScreen> {
   final List<Map<String, dynamic>> gridMap = [
+    // List of maps containing the title and image path of the shows
     {
       "title": "Pushpa",
       "images": "assets/images/Image1.png",
@@ -52,6 +53,7 @@ class _LatestShowsScreenState extends State<LatestShowsScreen> {
         backgroundColor: AppColors.colorSecondaryDarkest,
         elevation: 0,
         actions: const [
+          // Search icon button in the app bar
           Padding(
             padding: EdgeInsets.only(right: 16),
             child: Icon(Icons.search),
@@ -64,6 +66,7 @@ class _LatestShowsScreenState extends State<LatestShowsScreen> {
           physics: const BouncingScrollPhysics(),
           shrinkWrap: true,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            // Grid layout for the show tiles
             crossAxisCount: 2,
             crossAxisSpacing: 12.0,
             mainAxisSpacing: 12.0,
@@ -72,6 +75,7 @@ class _LatestShowsScreenState extends State<LatestShowsScreen> {
           itemCount: gridMap.length,
           itemBuilder: (_, index) {
             return Stack(children: [
+              // Each show tile
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(
@@ -82,7 +86,8 @@ class _LatestShowsScreenState extends State<LatestShowsScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
 
-                   ClipRRect(
+                    // Show image
+                    ClipRRect(
 
                       borderRadius: BorderRadius.circular(12),
                       child: Image.asset(
@@ -97,15 +102,16 @@ class _LatestShowsScreenState extends State<LatestShowsScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          // Show title
                           Text(
                             "${gridMap.elementAt(index)['title']}",
                             style: Theme.of(context).textTheme.subtitle1!.merge(
-                                  const TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    color: AppColors.colorWhiteHighEmp,
-                                    fontSize: 12,
-                                  ),
-                                ),
+                              const TextStyle(
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.colorWhiteHighEmp,
+                                fontSize: 12,
+                              ),
+                            ),
                           ),
                         ],
                       ),

@@ -1,8 +1,10 @@
+// Importing required packages
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:funflix_netro/utils/appColors.dart';
 
+// Stateful widget for MyListScreen
 class MyListScreen extends StatefulWidget {
   const MyListScreen({super.key});
 
@@ -10,7 +12,9 @@ class MyListScreen extends StatefulWidget {
   State<MyListScreen> createState() => _MyListScreenState();
 }
 
+// State class for MyListScreen
 class _MyListScreenState extends State<MyListScreen> {
+// List of all filter chips
   List<String> _data = [
     "K-Drama",
     "South Korea",
@@ -18,8 +22,10 @@ class _MyListScreenState extends State<MyListScreen> {
     "Sci-fi",
     "Hollywood",
   ];
+// List of selected filter chips
   List<String> _selectedData = [];
 
+// Method to handle selection of filter chips
   _onSelected(bool selected, String data) {
     setState(() {
       if (selected) {
@@ -31,6 +37,7 @@ class _MyListScreenState extends State<MyListScreen> {
     });
   }
 
+// List of data for gridview
   final List<Map<String, dynamic>> gridMap = [
     {
       "title": "Pushpa",

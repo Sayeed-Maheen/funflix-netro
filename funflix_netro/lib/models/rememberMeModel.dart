@@ -11,6 +11,7 @@ class RememberMeModel extends StatefulWidget {
 }
 
 class _RememberMeModelState extends State<RememberMeModel> {
+  // Declare a boolean variable to hold the state of the checkbox.
   bool? check1 = false;
 
   @override
@@ -18,9 +19,11 @@ class _RememberMeModelState extends State<RememberMeModel> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
+        // Add some padding to the left of the checkbox.
         Padding(
           padding: const EdgeInsets.only(left: 30, top: 12, bottom: 12),
           child: Theme(
+            // Change the color of the checkbox when it's unchecked.
             data: Theme.of(context).copyWith(
               unselectedWidgetColor: AppColors.colorWhiteHighEmp,
             ),
@@ -31,6 +34,7 @@ class _RememberMeModelState extends State<RememberMeModel> {
                 width: 20.w,
                 child: Checkbox(
                     value: check1,
+                    // When the state of the checkbox changes, update the value of check1.
                     onChanged: (bool? value) {
                       setState(() {
                         check1 = value;
@@ -40,6 +44,7 @@ class _RememberMeModelState extends State<RememberMeModel> {
             ),
           ),
         ),
+        // Add some padding to the left of the "Remember me" text.
         Padding(
           padding: const EdgeInsets.only(left: 8.0),
           child: Text(

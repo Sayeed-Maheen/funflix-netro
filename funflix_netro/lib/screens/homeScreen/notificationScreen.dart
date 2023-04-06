@@ -4,14 +4,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../utils/appColors.dart';
 
 class NotificationScreen extends StatefulWidget {
-  const NotificationScreen({super.key});
+  const NotificationScreen(
+      {super.key}); // Define a StatefulWidget for the notification screen
 
   @override
-  State<NotificationScreen> createState() => _NotificationScreenState();
+  State<NotificationScreen> createState() =>
+      _NotificationScreenState(); // Returns the state for the notification screen
 }
 
 class _NotificationScreenState extends State<NotificationScreen> {
   final List<Map<String, dynamic>> listMap = [
+    // Define a list of maps containing data for each item in the notification list
     {
       "title": "Pushpa",
       "subtitle": "2h 30min",
@@ -58,21 +61,28 @@ class _NotificationScreenState extends State<NotificationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Build the UI for the notification screen
     return Scaffold(
-      backgroundColor: AppColors.colorSecondaryDarkest,
+      backgroundColor: AppColors
+          .colorSecondaryDarkest, // Set the background color of the screen
       appBar: AppBar(
-        title: const Text('Notifications'),
-        backgroundColor: AppColors.colorSecondaryDarkest,
+        title: const Text('Notifications'), // Set the title of the app bar
+        backgroundColor: AppColors
+            .colorSecondaryDarkest, // Set the background color of the app bar
         elevation: 0,
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: Icon(Icons.more_vert, color: Colors.white,),
+            padding: EdgeInsets.only(right: 8.0),
+            child: Icon(
+              Icons.more_vert,
+              color: Colors.white,
+            ), // Add a more options icon to the app bar
           )
         ],
       ),
       body: ListView.builder(
-        itemCount: listMap.length,
+        itemCount: listMap
+            .length, // Set the number of items in the list view to the length of the listMap
         itemBuilder: (_, index) {
           return Padding(
             padding: const EdgeInsets.only(bottom: 8),

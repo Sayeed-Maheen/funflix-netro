@@ -1,3 +1,4 @@
+// Import necessary packages and screens
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:funflix_netro/screens/downloadScreen.dart';
@@ -9,6 +10,7 @@ import '../screens/profileScreen/profileScreen.dart';
 import '../screens/searchScreen/searchScreen.dart';
 import '../utils/appColors.dart';
 
+// Define the class for the bottom navigation model
 class MyBottomNavModel extends StatefulWidget {
   const MyBottomNavModel({super.key});
 
@@ -16,6 +18,7 @@ class MyBottomNavModel extends StatefulWidget {
   State<MyBottomNavModel> createState() => _MyBottomNavModelState();
 }
 
+// Define the state of the bottom navigation model
 class _MyBottomNavModelState extends State<MyBottomNavModel> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[

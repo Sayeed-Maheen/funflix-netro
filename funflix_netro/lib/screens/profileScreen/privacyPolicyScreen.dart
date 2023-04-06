@@ -1,8 +1,10 @@
+// Import necessary packages and files
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../utils/appColors.dart';
+import '../../utils/constants.dart';
 
+// Define a Privacy Policy Screen widget
 class PrivacyPolicyScreen extends StatelessWidget {
   const PrivacyPolicyScreen({super.key});
 
@@ -15,6 +17,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
         backgroundColor: AppColors.colorSecondaryDarkest,
         elevation: 0,
       ),
+// Define the body of the screen
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: SingleChildScrollView(
@@ -22,8 +25,9 @@ class PrivacyPolicyScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+// Display privacy policy information
               Text(
-                '1. Types of data we collect',
+                privacyPolicy1,
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
                   color: AppColors.colorWhiteHighEmp,
@@ -32,7 +36,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
               ),
               SizedBox(height: 10.h),
               Text(
-                'Lörem ipsum asovirat niser der. Dupons mimärat autokabel kopredat desa. Opp prere basm adism vilopension. Desism skämsfilter bende messa klimatsäkra. enade presa kyvingar renas.   Lörem ipsum asovirat niser der.Dupons mimärat autokabel kopredat desa. Opp prere basm adism vilopension.Desism skämsfilter bende messa klimatsäkra. Renade presa kyvingar renas. Lörem ipsum asovirat niser der. Dupons mimärat autokabel kopredat desa. Opp prere basm adism vilopension. Desism skämsfilter bende messa klimatsäkra. Renade presa kyvingar renas.  Lörem ipsum asovirat niser der. Dupons mimärat autokabel kopredat desa. Opp prere basm adism vilopension. Desism skämsfilter bende messa klimatsäkra. Renade presa kyvingar renas.  ',
+                privacyPolicyDesc,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
                   fontWeight: FontWeight.w400,
@@ -42,7 +46,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
               ),
               SizedBox(height: 15.h),
               Text(
-                '2. Use of your personal data',
+                privacyPolicy2,
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
                   color: AppColors.colorWhiteHighEmp,
@@ -51,7 +55,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
               ),
               SizedBox(height: 10.h),
               Text(
-                'Lörem ipsum asovirat niser der. Dupons mimärat autokabel kopredat desa. Opp prere basm adism vilopension. Desism skämsfilter bende messa klimatsäkra. enade presa kyvingar renas.   Lörem ipsum asovirat niser der.Dupons mimärat autokabel kopredat desa. Opp prere basm adism vilopension.Desism skämsfilter bende messa klimatsäkra. Renade presa kyvingar renas. Lörem ipsum asovirat niser der. Dupons mimärat autokabel kopredat desa. Opp prere basm adism vilopension. Desism skämsfilter bende messa klimatsäkra. Renade presa kyvingar renas.  Lörem ipsum asovirat niser der. Dupons mimärat autokabel kopredat desa. Opp prere basm adism vilopension. Desism skämsfilter bende messa klimatsäkra. Renade presa kyvingar renas.  ',
+                privacyPolicyDesc,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
                   fontWeight: FontWeight.w400,
@@ -61,7 +65,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
               ),
               SizedBox(height: 15.h),
               Text(
-                '3. Discourser of your personal data  ',
+                privacyPolicy3,
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
                   color: AppColors.colorWhiteHighEmp,
@@ -70,7 +74,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
               ),
               SizedBox(height: 10.h),
               Text(
-                'Lörem ipsum asovirat niser der. Dupons mimärat autokabel kopredat desa. Opp prere basm adism vilopension. Desism skämsfilter bende messa klimatsäkra. enade presa kyvingar renas.   Lörem ipsum asovirat niser der.Dupons mimärat autokabel kopredat desa. Opp prere basm adism vilopension.Desism skämsfilter bende messa klimatsäkra. Renade presa kyvingar renas. Lörem ipsum asovirat niser der. Dupons mimärat autokabel kopredat desa. Opp prere basm adism vilopension. Desism skämsfilter bende messa klimatsäkra. Renade presa kyvingar renas.  Lörem ipsum asovirat niser der. Dupons mimärat autokabel kopredat desa. Opp prere basm adism vilopension. Desism skämsfilter bende messa klimatsäkra. Renade presa kyvingar renas.  ',
+                privacyPolicyDesc,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
                   fontWeight: FontWeight.w400,
@@ -80,7 +84,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
               ),
               SizedBox(height: 12.h),
               Text(
-                'Lörem ipsum asovirat niser der. Dupons mimärat autokabel kopredat desa. Opp prere basm adism vilopension. Desism skämsfilter bende messa klimatsäkra. enade presa kyvingar renas.   Lörem ipsum asovirat niser der.Dupons mimärat autokabel kopredat desa.',
+                privacyPolicyDesc2,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
                   fontWeight: FontWeight.w400,

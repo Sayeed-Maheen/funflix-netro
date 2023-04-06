@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../utils/appColors.dart';
+import '../../utils/constants.dart';
 import '../../utils/myButton.dart';
 
 class MainSignInScreen extends StatelessWidget {
@@ -160,7 +161,7 @@ class MainSignInScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Don't have an account?",
+                  dontHaveAccount,
                   style: TextStyle(
                     fontSize: 16.sp,
                     color: AppColors.colorWhiteHighEmp,
