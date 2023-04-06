@@ -70,22 +70,38 @@ class _DownloadScreenProfileState extends State<DownloadScreenProfile> {
               decoration: BoxDecoration(
                   color: AppColors.colorGrey,
                   borderRadius: BorderRadius.circular(8)),
-              child: const TextField(
-                enabled: false,
-                decoration: InputDecoration(
-                    hintText: "   Smart Download",
-                    prefixIcon: Icon(
-                      Icons.download_rounded,
-                      color: AppColors.colorWhiteHighEmp,
-                      size: 26,
-                    ),
-                    hintStyle: TextStyle(color: AppColors.colorWhiteHighEmp),
-                    border: InputBorder.none,
-                    suffixIcon: Icon(
-                      Icons.arrow_forward_ios_outlined,
-                      color: AppColors.colorWhiteHighEmp,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(width: 12.w),
+                      const Icon(
+                        Icons.download_for_offline,
+                        color: AppColors.colorWhiteHighEmp,
+                      ),
+                      SizedBox(width: 12.w),
+                      Text(
+                        '  Smarts Download',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.colorWhiteHighEmp,
+                          fontSize: 16.sp,
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const Padding(
+                    padding: EdgeInsets.only(right: 16),
+                    child: Icon(
+                      Icons.arrow_forward_ios,
                       size: 16,
-                    )),
+                      color: AppColors.colorWhiteHighEmp,
+                    ),
+                  ),
+                ],
               ),
             ),
             SizedBox(height: 10.h),
@@ -95,22 +111,38 @@ class _DownloadScreenProfileState extends State<DownloadScreenProfile> {
               decoration: BoxDecoration(
                   color: AppColors.colorGrey,
                   borderRadius: BorderRadius.circular(8)),
-              child: const TextField(
-                enabled: false,
-                decoration: InputDecoration(
-                    hintText: "   Video Quality",
-                    prefixIcon: Icon(
-                      Icons.high_quality,
-                      color: AppColors.colorWhiteHighEmp,
-                      size: 26,
-                    ),
-                    hintStyle: TextStyle(color: AppColors.colorWhiteHighEmp),
-                    border: InputBorder.none,
-                    suffixIcon: Icon(
-                      Icons.arrow_forward_ios_outlined,
-                      color: AppColors.colorWhiteHighEmp,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(width: 12.w),
+                      const Icon(
+                        Icons.high_quality,
+                        color: AppColors.colorWhiteHighEmp,
+                      ),
+                      SizedBox(width: 12.w),
+                      Text(
+                        '  Video Quality',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.colorWhiteHighEmp,
+                          fontSize: 16.sp,
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const Padding(
+                    padding: EdgeInsets.only(right: 16),
+                    child: Icon(
+                      Icons.arrow_forward_ios,
                       size: 16,
-                    )),
+                      color: AppColors.colorWhiteHighEmp,
+                    ),
+                  ),
+                ],
               ),
             ),
             SizedBox(height: 10.h),
@@ -120,22 +152,38 @@ class _DownloadScreenProfileState extends State<DownloadScreenProfile> {
               decoration: BoxDecoration(
                   color: AppColors.colorGrey,
                   borderRadius: BorderRadius.circular(8)),
-              child: const TextField(
-                enabled: false,
-                decoration: InputDecoration(
-                    hintText: "   Audio Quality",
-                    prefixIcon: Icon(
-                      Icons.mic,
-                      color: AppColors.colorWhiteHighEmp,
-                      size: 26,
-                    ),
-                    hintStyle: TextStyle(color: AppColors.colorWhiteHighEmp),
-                    border: InputBorder.none,
-                    suffixIcon: Icon(
-                      Icons.arrow_forward_ios_outlined,
-                      color: AppColors.colorWhiteHighEmp,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(width: 12.w),
+                      const Icon(
+                        Icons.mic_none,
+                        color: AppColors.colorWhiteHighEmp,
+                      ),
+                      SizedBox(width: 12.w),
+                      Text(
+                        '  Audio Quality',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.colorWhiteHighEmp,
+                          fontSize: 16.sp,
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const Padding(
+                    padding: EdgeInsets.only(right: 16),
+                    child: Icon(
+                      Icons.arrow_forward_ios,
                       size: 16,
-                    )),
+                      color: AppColors.colorWhiteHighEmp,
+                    ),
+                  ),
+                ],
               ),
             ),
             SizedBox(height: 10.h),
@@ -145,22 +193,38 @@ class _DownloadScreenProfileState extends State<DownloadScreenProfile> {
               decoration: BoxDecoration(
                   color: AppColors.colorGrey,
                   borderRadius: BorderRadius.circular(8)),
-              child: const TextField(
-                enabled: false,
-                decoration: InputDecoration(
-                    hintText: "   Delete all downloads",
-                    prefixIcon: Icon(
-                      Icons.download_rounded,
-                      color: AppColors.colorWhiteHighEmp,
-                      size: 26,
-                    ),
-                    hintStyle: TextStyle(color: AppColors.colorWhiteHighEmp),
-                    border: InputBorder.none,
-                    suffixIcon: Icon(
-                      Icons.arrow_forward_ios_outlined,
-                      color: AppColors.colorWhiteHighEmp,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(width: 12.w),
+                      const Icon(
+                        Icons.download,
+                        color: AppColors.colorWhiteHighEmp,
+                      ),
+                      SizedBox(width: 12.w),
+                      Text(
+                        '  Delete all downloads',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.colorWhiteHighEmp,
+                          fontSize: 16.sp,
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const Padding(
+                    padding: EdgeInsets.only(right: 16),
+                    child: Icon(
+                      Icons.arrow_forward_ios,
                       size: 16,
-                    )),
+                      color: AppColors.colorWhiteHighEmp,
+                    ),
+                  ),
+                ],
               ),
             ),
             SizedBox(height: 10.h),
@@ -170,22 +234,38 @@ class _DownloadScreenProfileState extends State<DownloadScreenProfile> {
               decoration: BoxDecoration(
                   color: AppColors.colorGrey,
                   borderRadius: BorderRadius.circular(8)),
-              child: const TextField(
-                enabled: false,
-                decoration: InputDecoration(
-                    hintText: "   Delete Cache",
-                    prefixIcon: Icon(
-                      Icons.delete_forever_outlined,
-                      color: AppColors.colorWhiteHighEmp,
-                      size: 26,
-                    ),
-                    hintStyle: TextStyle(color: AppColors.colorWhiteHighEmp),
-                    border: InputBorder.none,
-                    suffixIcon: Icon(
-                      Icons.arrow_forward_ios_outlined,
-                      color: AppColors.colorWhiteHighEmp,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(width: 12.w),
+                      const Icon(
+                        Icons.delete_outline,
+                        color: AppColors.colorWhiteHighEmp,
+                      ),
+                      SizedBox(width: 12.w),
+                      Text(
+                        '  Delete Cache',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.colorWhiteHighEmp,
+                          fontSize: 16.sp,
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const Padding(
+                    padding: EdgeInsets.only(right: 16),
+                    child: Icon(
+                      Icons.arrow_forward_ios,
                       size: 16,
-                    )),
+                      color: AppColors.colorWhiteHighEmp,
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

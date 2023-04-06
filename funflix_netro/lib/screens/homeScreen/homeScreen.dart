@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:funflix_netro/models/categoryModel.dart';
 import 'package:funflix_netro/models/latestShowsModel.dart';
 import 'package:funflix_netro/screens/homeScreen/latestShowsScreen.dart';
 import 'package:funflix_netro/screens/homeScreen/trendingVideosScreen.dart';
@@ -18,6 +17,28 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<String> _data = [
+    "All",
+    "Movies",
+    "Drama",
+    "Thriller",
+    "Romance",
+    "Comedy",
+    "Horror",
+  ];
+  List<String> _selectedData = [];
+
+  _onSelected(bool selected, String data) {
+    setState(() {
+      if (selected) {
+        _selectedData.clear();
+        _selectedData.add(data);
+      } else {
+        _selectedData.remove(data);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -173,7 +194,38 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-              const CategoryModel(),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    SizedBox(width: 16.w),
+                    Wrap(
+                      spacing: 5,
+                      runSpacing: 3,
+                      children: _data.map((data) {
+                        return FilterChip(
+                          showCheckmark: false,
+                          backgroundColor: AppColors.colorSecondaryDarkest,
+                          label: Text(
+                            data,
+                            style: const TextStyle(
+                                color: AppColors.colorWhiteHighEmp),
+                          ),
+                          shape: const StadiumBorder(
+                              side: BorderSide(color: AppColors.colorPrimary)),
+                          selected: _selectedData.contains(data),
+                          selectedColor: AppColors.colorPrimary,
+
+                          padding: const EdgeInsets.all(5),
+                          onSelected: (selected) => _onSelected(selected, data),
+                        );
+                      }).toList(),
+                    ),
+                    SizedBox(width: 16.w),
+                  ],
+
+                ),
+              ),
               const LatestShowsModel(),
               Padding(
                 padding: const EdgeInsets.only(left: 16, top: 14, right: 16),

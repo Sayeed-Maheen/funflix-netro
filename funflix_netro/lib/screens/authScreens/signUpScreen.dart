@@ -71,9 +71,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 r"^WS{1,2}:\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:56789")
                             .hasMatch(value!);
                         if (value.isEmpty) {
-                          return "";
+                          return "Enter Email";
                         } else if (emailValid) {
-                          return "";
+                          return "Enter valid Email";
                         }
                         return null;
                       },
@@ -87,7 +87,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           color: AppColors.colorDisabled,
                         ),
                         contentPadding:
-                            const EdgeInsets.fromLTRB(10, 16, 10, 16),
+                            const EdgeInsets.fromLTRB(10, 16, 8, 16),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
                           borderSide: const BorderSide(
@@ -132,9 +132,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       controller: passwordController,
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "";
+                          return "Enter Password";
                         } else if (passwordController.text.length < 6) {
-                          return "";
+                          return "Password length should be more than 6 characters";
                         }
                       },
                       style: const TextStyle(color: AppColors.colorDisabled),
@@ -159,7 +159,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   color: AppColors.colorPrimary, size: 20),
                         ),
                         contentPadding:
-                            const EdgeInsets.fromLTRB(10, 16, 10, 16),
+                            const EdgeInsets.fromLTRB(10, 16, -12, 16),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
                           borderSide: const BorderSide(
@@ -204,9 +204,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       controller: passwordController2,
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "";
+                          return "Enter Password";
                         } else if (passwordController2.text.length < 6) {
-                          return "";
+                          return "Password length should be more than 6 characters";
                         }
                       },
                       style: const TextStyle(color: AppColors.colorDisabled),
@@ -231,7 +231,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   color: AppColors.colorPrimary, size: 20),
                         ),
                         contentPadding:
-                            const EdgeInsets.fromLTRB(10, 16, 10, 16),
+                            const EdgeInsets.fromLTRB(10, 16,-12, 16),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
                           borderSide: const BorderSide(

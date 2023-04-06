@@ -23,6 +23,7 @@ class _MyListScreenState extends State<MyListScreen> {
   _onSelected(bool selected, String data) {
     setState(() {
       if (selected) {
+        _selectedData.clear();
         _selectedData.add(data);
       } else {
         _selectedData.remove(data);
@@ -66,15 +67,6 @@ class _MyListScreenState extends State<MyListScreen> {
     return Scaffold(
         backgroundColor: AppColors.colorSecondaryDarkest,
         appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {
-              SystemNavigator.pop();
-            },
-            icon: const Icon(
-              Icons.arrow_back,
-              color: AppColors.colorWhiteHighEmp,
-            ),
-          ),
           title: const Text('My List'),
           backgroundColor: AppColors.colorSecondaryDarkest,
           elevation: 0,
@@ -95,10 +87,11 @@ class _MyListScreenState extends State<MyListScreen> {
                   SizedBox(width: 16.w),
                   Wrap(
                     spacing: 5,
+                    runSpacing: 3,
                     children: _data.map((data) {
                       return FilterChip(
                         showCheckmark: false,
-                        backgroundColor: AppColors.colorPrimary,
+                        backgroundColor: AppColors.colorSecondaryDarkest,
                         label: Text(
                           data,
                           style: const TextStyle(
@@ -108,6 +101,7 @@ class _MyListScreenState extends State<MyListScreen> {
                             side: BorderSide(color: AppColors.colorPrimary)),
                         selected: _selectedData.contains(data),
                         selectedColor: AppColors.colorPrimary,
+
                         padding: const EdgeInsets.all(5),
                         onSelected: (selected) => _onSelected(selected, data),
                       );

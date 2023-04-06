@@ -27,14 +27,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
         backgroundColor: AppColors.colorSecondaryDarkest,
         appBar: AppBar(
-          leading: IconButton(
-              onPressed: () {
-                SystemNavigator.pop();
-              },
-              icon: const Icon(
-                Icons.arrow_back,
-                color: AppColors.colorWhiteHighEmp,
-              )),
           title: const Text('Profile'),
           backgroundColor: AppColors.colorSecondaryDarkest,
           elevation: 0,

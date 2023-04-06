@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:funflix_netro/models/myBottomNavModel.dart';
 import 'package:funflix_netro/models/rememberMeModel.dart';
 import 'package:funflix_netro/screens/authScreens/signUpScreen.dart';
 import 'package:funflix_netro/screens/interestScreen.dart';
@@ -70,9 +71,9 @@ class _SignInScreenState extends State<SignInScreen> {
                                 r"^WS{1,2}:\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:56789")
                             .hasMatch(value!);
                         if (value.isEmpty) {
-                          return "";
+                          return "Enter Email";
                         } else if (emailValid) {
-                          return "";
+                          return "Enter valid Email";
                         }
                         return null;
                       },
@@ -86,7 +87,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           color: AppColors.colorDisabled,
                         ),
                         contentPadding:
-                            const EdgeInsets.fromLTRB(10, 16, 10, 16),
+                            const EdgeInsets.fromLTRB(10, 16, 8, 16),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
                           borderSide: const BorderSide(
@@ -131,9 +132,9 @@ class _SignInScreenState extends State<SignInScreen> {
                       controller: passwordController,
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "";
+                          return "Enter Password";
                         } else if (passwordController.text.length < 6) {
-                          return "";
+                          return "Password length should be more than 6 characters";
                         }
                       },
                       style: const TextStyle(color: AppColors.colorDisabled),
@@ -158,7 +159,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   color: AppColors.colorPrimary, size: 20),
                         ),
                         contentPadding:
-                            const EdgeInsets.fromLTRB(10, 16, 10, 16),
+                            const EdgeInsets.fromLTRB(10, 16, -12, 16),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
                           borderSide: const BorderSide(
@@ -236,13 +237,28 @@ class _SignInScreenState extends State<SignInScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset('assets/images/facebook.png',
-                        height: 32.h, width: 32.w),
+                    GestureDetector(
+                      onTap: () {
+                        Get.offAll(MyBottomNavModel());
+                      },
+                      child: Image.asset('assets/images/facebook.png',
+                          height: 32.h, width: 32.w),
+                    ),
                     SizedBox(width: 10.w),
-                    Image.asset('assets/images/google.png',
-                        height: 40.h, width: 40.w),
-                    Image.asset('assets/images/apple.png',
-                        height: 50.h, width: 45.w),
+                    GestureDetector(
+                      onTap: () {
+                        Get.offAll(MyBottomNavModel());
+                      },
+                      child: Image.asset('assets/images/google.png',
+                          height: 40.h, width: 40.w),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Get.offAll(MyBottomNavModel());
+                      },
+                      child: Image.asset('assets/images/apple.png',
+                          height: 50.h, width: 45.w),
+                    ),
                   ],
                 ),
                 Row(

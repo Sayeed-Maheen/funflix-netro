@@ -3,21 +3,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../utils/appColors.dart';
 
-
 class GenderDropdownModel extends StatefulWidget {
   @override
-  _GenderDropdownModelState createState() =>
-      _GenderDropdownModelState();
+  _GenderDropdownModelState createState() => _GenderDropdownModelState();
 }
 
-class _GenderDropdownModelState
-    extends State<GenderDropdownModel> {
+class _GenderDropdownModelState extends State<GenderDropdownModel> {
   late String _selectedValue;
 
   final List<String> _items = [
     'Male',
     'Female',
-
   ];
 
   @override
@@ -37,10 +33,9 @@ class _GenderDropdownModelState
         color: AppColors.colorGrey,
       ),
       child: Row(
-
         children: [
           Padding(
-            padding: const EdgeInsets.only(left:16),
+            padding: const EdgeInsets.only(left: 16),
             child: DropdownButton(
               dropdownColor: AppColors.colorGrey,
               borderRadius: BorderRadius.circular(12),
@@ -50,7 +45,8 @@ class _GenderDropdownModelState
                   value: value,
                   child: Text(
                     value,
-                    style: TextStyle(fontSize: 14.sp, color: AppColors.colorWhiteHighEmp),
+                    style: TextStyle(
+                        fontSize: 14.sp, color: AppColors.colorWhiteHighEmp),
                   ),
                 );
               }).toList(),
@@ -65,19 +61,14 @@ class _GenderDropdownModelState
               ),
               iconDisabledColor: Colors.transparent,
               icon: const Padding(
-                padding: EdgeInsets.only(left: 260),
-                child: Icon(Icons.arrow_drop_down, color: AppColors.colorWhiteHighEmp),
+                padding: EdgeInsets.only(left: 230),
+                child: Icon(Icons.arrow_drop_down,
+                    color: AppColors.colorWhiteHighEmp),
               ), // add your own icon here
             ),
           ),
-
         ],
       ),
     );
-
-
-
-
-
   }
 }

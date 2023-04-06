@@ -22,7 +22,6 @@ class MovieDetailsScreen extends StatefulWidget {
 
 class _MovieDetailsScreenState extends State<MovieDetailsScreen>
     with SingleTickerProviderStateMixin {
-  int _selectedIndex = 0;
   late TabController tabController;
   @override
   void initState() {
@@ -1061,27 +1060,21 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen>
               unselectedLabelColor: AppColors.colorWhiteHighEmp,
               labelColor: AppColors.colorWhiteHighEmp,
               controller: tabController,
-              tabs: [
-                const Tab(
+              tabs: const [
+                Tab(
                   text: 'Trailers',
                 ),
-                const Tab(
+                Tab(
                   text: 'More like this',
                 ),
-                InkWell(
-                  onTap: () {
-                    // Navigator.push(context,
-                    //     MaterialPageRoute(builder: (context) => Comments()));
-                  },
-                  child: const Tab(
-                    text: 'Comments',
-                  ),
+                Tab(
+                  text: 'Comments',
                 ),
               ],
             ),
-            SizedBox(
-              height: 1000.h,
-              child: Expanded(
+            Expanded(
+              child: SizedBox(
+                height: 700.h,
                 child: TabBarView(
                   controller: tabController,
                   children: [

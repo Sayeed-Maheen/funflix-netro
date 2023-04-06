@@ -65,33 +65,10 @@ class _NotificationScreenState extends State<NotificationScreen> {
         backgroundColor: AppColors.colorSecondaryDarkest,
         elevation: 0,
         actions: [
-          PopupMenuButton(
-              // add icon, by default "3 dot" icon
-              // icon: Icon(Icons.book)
-              itemBuilder: (context) {
-            return [
-              const PopupMenuItem<int>(
-                value: 0,
-                child: Text("My Account"),
-              ),
-              const PopupMenuItem<int>(
-                value: 1,
-                child: Text("Settings"),
-              ),
-              const PopupMenuItem<int>(
-                value: 2,
-                child: Text("Logout"),
-              ),
-            ];
-          }, onSelected: (value) {
-            if (value == 0) {
-              print("My account menu is selected.");
-            } else if (value == 1) {
-              print("Settings menu is selected.");
-            } else if (value == 2) {
-              print("Logout menu is selected.");
-            }
-          }),
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: Icon(Icons.more_vert, color: Colors.white,),
+          )
         ],
       ),
       body: ListView.builder(

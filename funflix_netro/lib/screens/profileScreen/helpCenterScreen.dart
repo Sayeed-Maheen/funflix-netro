@@ -52,15 +52,13 @@ class _HelpCenterScreenState extends State<HelpCenterScreen>
           ],
         ),
       ),
-      body: Padding(
-          padding: const EdgeInsets.all(16),
-          child: TabBarView(
-            controller: tabController,
-            children: const [
-              FaqScreen(),
-              ContactUsScreen(),
-            ],
-          )),
+      body: TabBarView(
+        controller: tabController,
+        children: const [
+          FaqScreen(),
+          ContactUsScreen(),
+        ],
+      ),
     );
   }
 }

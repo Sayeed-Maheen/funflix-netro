@@ -14,12 +14,6 @@ class Comments extends StatelessWidget {
           title: const Text('Comments'),
           backgroundColor: AppColors.colorSecondaryDarkest,
           elevation: 0,
-          actions: const [
-            Padding(
-              padding: EdgeInsets.only(right: 16),
-              child: Icon(Icons.menu),
-            )
-          ],
         ),
         body: Padding(
           padding: const EdgeInsets.all(16),

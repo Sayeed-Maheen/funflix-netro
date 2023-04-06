@@ -93,20 +93,25 @@ class _InterestScreenState extends State<InterestScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  height: 45.h,
-                  width: 148.w,
-                  decoration: BoxDecoration(
-                    color: AppColors.colorWhiteMidEmp,
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'SKIP',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.colorSecondaryDarkest,
-                        fontSize: 16.sp,
+                GestureDetector(
+                  onTap: () {
+                    Get.to( const ProfileFillupScreen());
+                  },
+                  child: Container(
+                    height: 45.h,
+                    width: 148.w,
+                    decoration: BoxDecoration(
+                      color: AppColors.colorWhiteMidEmp,
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'SKIP',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.colorSecondaryDarkest,
+                          fontSize: 16.sp,
+                        ),
                       ),
                     ),
                   ),

@@ -41,51 +41,66 @@ class LatestShowsModel extends StatelessWidget {
               ),
             ),
             SizedBox(width: 10.w),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Image.asset('assets/images/Image-2.png',
-                    height: 105.h, width: 100.w),
-                Text(
-                  'Agilan',
-                  style: TextStyle(
-                      fontSize: 12.sp,
-                      color: AppColors.colorWhiteHighEmp,
-                      fontWeight: FontWeight.w400),
-                )
-              ],
-            ),
-            SizedBox(width: 10.w),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Image.asset('assets/images/Image-1.png',
-                    height: 105.h, width: 100.w),
-                Text(
-                  'Action',
-                  style: TextStyle(
-                      fontSize: 12.sp,
-                      color: AppColors.colorWhiteHighEmp,
-                      fontWeight: FontWeight.w400),
-                )
-              ],
-            ),
-            SizedBox(width: 10.w),
-            Padding(
-              padding: const EdgeInsets.only(right: 16),
+            GestureDetector(
+              onTap: () {
+                Get.to(const MovieDetailsScreen());
+              },
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset('assets/images/Image.png',
+                  Image.asset('assets/images/Image-2.png',
                       height: 105.h, width: 100.w),
                   Text(
-                    'Pushpa',
+                    'Agilan',
                     style: TextStyle(
                         fontSize: 12.sp,
                         color: AppColors.colorWhiteHighEmp,
                         fontWeight: FontWeight.w400),
                   )
                 ],
+              ),
+            ),
+            SizedBox(width: 10.w),
+            GestureDetector(
+              onTap: () {
+                Get.to(const MovieDetailsScreen());
+              },
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset('assets/images/Image-1.png',
+                      height: 105.h, width: 100.w),
+                  Text(
+                    'Action',
+                    style: TextStyle(
+                        fontSize: 12.sp,
+                        color: AppColors.colorWhiteHighEmp,
+                        fontWeight: FontWeight.w400),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(width: 10.w),
+            GestureDetector(
+              onTap: () {
+                Get.to(const MovieDetailsScreen());
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(right: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image.asset('assets/images/Image.png',
+                        height: 105.h, width: 100.w),
+                    Text(
+                      'Pushpa',
+                      style: TextStyle(
+                          fontSize: 12.sp,
+                          color: AppColors.colorWhiteHighEmp,
+                          fontWeight: FontWeight.w400),
+                    )
+                  ],
+                ),
               ),
             ),
           ],
